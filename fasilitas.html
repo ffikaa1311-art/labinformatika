@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fasilitas Lab - UNISSULA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Outfit', sans-serif; background-color: #FDF5E6; }
+        .hero-bg { 
+            background: linear-gradient(rgba(78, 52, 46, 0.8), rgba(78, 52, 46, 0.8)), 
+            url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop'); 
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero-bg h-[40vh] flex items-center justify-center text-white text-center px-6">
+        <div>
+            <h1 class="text-5xl font-extrabold mb-4">Fasilitas Laboratorium Informatika</h1>
+            <p class="text-orange-200 tracking-widest uppercase font-bold text-sm">Universitas Sultan Agung</p>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-16">
+        <div class="grid md:grid-cols-3 gap-8">
+            
+            <div class="bg-white p-8 rounded-[40px] shadow-xl border-b-8 border-[#A44A3F] hover:transform hover:-translate-y-2 transition-all">
+                <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mb-6">
+                    <i class="fas fa-desktop text-2xl text-[#A44A3F]"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-[#4E342E] mb-4">Lab Riset & AI</h3>
+                <p class="text-gray-500 text-sm mb-4">Dilengkapi dengan PC spesifikasi tinggi untuk pengembangan kecerdasan buatan.</p>
+                <ul class="text-gray-600 space-y-2 text-sm">
+                    <li><i class="fas fa-check-circle text-green-500 mr-2"></i> 40 Unit PC High-End</li>
+                    <li><i class="fas fa-check-circle text-green-500 mr-2"></i> NVIDIA RTX GPU</li>
+                    <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Full AC & WiFi 6</li>
+                </ul>
+            </div>
+
+            <div class="bg-white p-8 rounded-[40px] shadow-xl border-b-8 border-[#4E342E] hover:transform hover:-translate-y-2 transition-all">
+                <div class="w-16 h-16 bg-stone-100 rounded-2xl flex items-center justify-center mb-6">
+                    <i class="fas fa-network-wired text-2xl text-[#4E342E]"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-[#4E342E] mb-4">Lab Jaringan</h3>
+                <p class="text-gray-500 text-sm mb-4">Fasilitas lengkap untuk praktikum Cisco, Mikrotik, dan Server Jaringan.</p>
+                <ul class="text-gray-600 space-y-2 text-sm">
+                    <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Router & Switch Cisco</li>
+                    <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Rack Server System</li>
+                    <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Toolkits Fiber Optic</li>
+                </ul>
+            </div>
+
+            <div class="bg-white p-8 rounded-[40px] shadow-xl border-b-8 border-[#D4A373] hover:transform hover:-translate-y-2 transition-all">
+                <div class="w-16 h-16 bg-yellow-50 rounded-2xl flex items-center justify-center mb-6">
+                    <i class="fas fa-couch text-2xl text-[#D4A373]"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-[#4E342E] mb-4">Student Lounge</h3>
+                <p class="text-gray-500 text-sm mb-4">Area coworking yang nyaman untuk mahasiswa berdiskusi dan belajar kelompok.</p>
+                <ul class="text-gray-600 space-y-2 text-sm">
+                    <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Charging Station</li>
+                    <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Area WiFi Cepat</li>
+                    <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Papan Tulis Diskusi</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="mt-16 text-center">
+            <button onclick="window.history.back()" class="bg-[#4E342E] text-white px-10 py-4 rounded-2xl font-bold shadow-lg hover:bg-[#A44A3F] transition-all">
+                <i class="fas fa-arrow-left mr-2"></i> Kembali ke Beranda
+            </button>
+        </div>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Informatika UNISSULA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --coklat-kopi: #4E342E;
+            --coklat-pramuka: #795548;
+            --coklat-bata: #A44A3F;
+            --cream: #FDF5E6;
+        }
+        body { font-family: 'Outfit', sans-serif; background-color: var(--cream); overflow-x: hidden; }
+        
+        .bg-pattern {
+            background-color: #4E342E;
+            background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+        }
+
+        .card-glow {
+            background: linear-gradient(135deg, #A44A3F 0%, #795548 100%);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s shadow;
+        }
+        .card-glow:hover { transform: scale(1.03) translateY(-10px); box-shadow: 0 30px 60px rgba(78, 52, 46, 0.4); }
+
+        .unissula-border { border-left: 6px solid var(--coklat-bata); }
+        
+        /* Animasi muncul modal */
+        .modal-enter { animation: modalFade 0.3s ease-out; }
+        @keyframes modalFade {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="fixed top-0 w-full z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto bg-white/70 backdrop-blur-xl border border-white/20 rounded-2xl px-8 py-4 flex justify-between items-center shadow-2xl">
+            <div class="flex items-center gap-4">
+                <img src="LogoUnissula.png" alt="Logo UNISSULA" class="h-12">
+                <div>
+                    <h1 class="text-xl font-extrabold text-[#4E342E] leading-none">UNISSULA</h1>
+                    <p class="text-[10px] uppercase tracking-[0.2em] text-[#A44A3F] font-bold">Lab Informatika</p>
+                </div>
+            </div>
+            <div class="flex gap-8 items-center">
+                <button onclick="toggleModal('modalDashboard')" class="text-sm font-semibold text-[#4E342E] hover:text-[#A44A3F] transition">Dashboard</button>
+                <button onclick="toggleModal('modalLogin')" class="bg-[#4E342E] text-white px-6 py-2.5 rounded-xl text-sm font-bold hover:bg-[#A44A3F] transition-all shadow-lg">Login</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-40 pb-20 px-6 bg-pattern text-white rounded-b-[80px] shadow-2xl relative">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center text-center md:text-left">
+            <div class="space-y-8">
+                <span class="inline-block px-4 py-2 bg-[#A44A3F]/30 border border-[#A44A3F] rounded-full text-xs font-bold tracking-widest uppercase text-[#F9A8D4]">Bismillah - Khaira Ummah</span>
+                <h2 class="text-6xl font-extrabold leading-tight">Membangun <br> <span class="text-[#D4A373]">Generasi Digital</span> Berakhlak Mulia</h2>
+               <div class="flex justify-center md:justify-start">
+                    <button onclick="window.location.href='fasilitas.html'" class="bg-[#A44A3F] px-8 py-4 rounded-2xl font-bold shadow-2xl hover:bg-[#8e3f36] transition-all flex items-center gap-3">
+                        Lihat Fasilitas <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="modalInventaris" class="fixed inset-0 bg-[#4E342E]/90 backdrop-blur-2xl hidden flex items-center justify-center z-[110] p-4">
+        <div class="bg-white rounded-[40px] shadow-2xl w-full max-w-5xl overflow-hidden flex flex-col md:flex-row h-[85vh] modal-enter relative">
+            
+            <div class="md:w-1/3 bg-[#A44A3F] p-12 text-white flex flex-col justify-between">
+                <div>
+                    <img src="LogoUnissula.png" alt="Logo UNISSULA" class="h-12 mb-6">
+                    <h2 class="text-4xl font-extrabold mb-4">Formulir <br> Peminjaman</h2>
+                    <p class="text-white/60 text-sm">Silakan isi data peminjaman dengan lengkap sesuai prosedur laboratorium.</p>
+                </div>
+                <button onclick="toggleModal('modalInventaris')" class="text-white/50 font-bold text-left hover:text-white transition">← Kembali</button>
+            </div>
+
+            <div class="md:w-2/3 p-12 overflow-y-auto bg-white">
+                <div class="space-y-10">
+                    <section class="unissula-border pl-6">
+                        <h3 class="text-2xl font-bold text-[#4E342E]">Informasi Peminjam</h3>
+                        <div class="mt-6">
+                            <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">Nomor Induk Mahasiswa</label>
+                            <input type="text" class="w-full bg-gray-50 border-2 border-transparent focus:border-[#A44A3F] rounded-2xl p-4 outline-none transition font-bold" placeholder="30602300xxx">
+                        </div>
+                    </section>
+
+                    <section class="unissula-border pl-6">
+                        <h3 class="text-2xl font-bold text-[#4E342E]">Detail Alat & Waktu</h3>
+                        <div class="mt-6 space-y-6">
+                            <div>
+                                <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">Alat yang Dipinjam</label>
+                                <textarea class="w-full bg-gray-50 border-2 border-transparent focus:border-[#A44A3F] rounded-2xl p-4 outline-none transition min-h-[100px]" placeholder="Sebutkan alat dan jumlahnya..."></textarea>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-black text-gray-400 uppercase tracking-widest mb-2">Waktu Pinjam</label>
+                                    <input type="date" class="w-full bg-gray-50 border-2 border-transparent focus:border-[#A44A3F] rounded-2xl p-4 outline-none transition text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-black text-gray-400 uppercase tracking-widest mb-2">Waktu Kembali</label>
+                                    <input type="date" class="w-full bg-gray-50 border-2 border-transparent focus:border-[#A44A3F] rounded-2xl p-4 outline-none transition text-sm">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <button class="w-full bg-[#A44A3F] text-white py-5 rounded-2xl font-black text-lg shadow-2xl hover:scale-[1.02] transition-all">
+                        Ajukan Peminjaman
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <div id="modalLogin" class="fixed inset-0 bg-black/60 backdrop-blur-md hidden flex items-center justify-center z-[110] p-4">
+        <div class="bg-white rounded-[40px] shadow-2xl w-full max-w-md overflow-hidden modal-enter">
+            <div class="bg-[#4E342E] p-10 text-white text-center">
+                <img src="LogoUnissula.png" alt="Logo UNISSULA" class="h-12">
+                <h2 class="text-2xl font-bold">Login Mahasiswa</h2>
+                <p class="text-sm opacity-60">Masuk ke Sistem Informasi Lab</p>
+            </div>
+            <div class="p-10 space-y-4">
+                <input type="text" class="w-full bg-gray-50 border-2 border-transparent focus:border-[#A44A3F] rounded-2xl p-4 outline-none transition" placeholder="NIM / Username">
+                <input type="password" class="w-full bg-gray-50 border-2 border-transparent focus:border-[#A44A3F] rounded-2xl p-4 outline-none transition" placeholder="Password">
+                <button class="w-full bg-[#A44A3F] text-white py-4 rounded-2xl font-bold shadow-lg shadow-red-100">Masuk</button>
+                <button onclick="toggleModal('modalLogin')" class="w-full text-gray-400 text-sm font-bold">Kembali</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalDashboard" class="fixed inset-0 bg-[#4E342E]/90 backdrop-blur-xl hidden flex items-center justify-center z-[110] p-4">
+        <div class="bg-white rounded-[40px] shadow-2xl w-full max-w-4xl p-10 modal-enter">
+            <div class="flex justify-between items-center mb-10">
+                <h2 class="text-3xl font-extrabold text-[#4E342E]">Dashboard Statistik</h2>
+                <button onclick="toggleModal('modalDashboard')" class="text-gray-400 hover:text-red-500 text-3xl">&times;</button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-orange-50 p-8 rounded-[30px] border border-orange-100">
+                    <i class="fas fa-laptop text-orange-500 text-3xl mb-4"></i>
+                    <h5 class="text-gray-500 font-bold uppercase text-xs tracking-widest">Total Alat</h5>
+                    <p class="text-4xl font-black text-[#4E342E]">128</p>
+                </div>
+                <div class="bg-blue-50 p-8 rounded-[30px] border border-blue-100">
+                    <i class="fas fa-hand-holding text-blue-500 text-3xl mb-4"></i>
+                    <h5 class="text-gray-500 font-bold uppercase text-xs tracking-widest">Dipinjam</h5>
+                    <p class="text-4xl font-black text-[#4E342E]">14</p>
+                </div>
+                <div class="bg-green-50 p-8 rounded-[30px] border border-green-100">
+                    <i class="fas fa-check-double text-green-500 text-3xl mb-4"></i>
+                    <h5 class="text-gray-500 font-bold uppercase text-xs tracking-widest">Tersedia</h5>
+                    <p class="text-4xl font-black text-[#4E342E]">114</p>
+                </div>
+            </div>
+            <div class="mt-8 p-6 bg-gray-50 rounded-2xl italic text-gray-400 text-sm text-center">
+                Data inventaris diperbarui secara otomatis oleh sistem Lab TIF.
+            </div>
+        </div>
+    </div>
+
+   <main class="max-w-7xl mx-auto px-6 py-24">
+        <div class="grid md:grid-cols-2 gap-10 items-end"> 
+            
+            <div class="space-y-6 pb-10">
+                <h3 class="text-4xl font-extrabold text-[#4E342E] leading-tight">
+                    Sistem Informasi <br> 
+                    Manajemen Laboratorium
+                </h3>
+                <div class="border-l-4 border-[#A44A3F] pl-6">
+                    <h4 class="font-bold text-[#4E342E]">Aman & Terpadu</h4>
+                    <p class="text-gray-500 text-sm mt-2">
+                        Semua peminjaman alat terdata otomatis ke sistem pusat UNISSULA. <br>
+                        Pastikan Anda mengikuti prosedur yang berlaku.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex justify-end">
+                <div onclick="toggleModal('modalInventaris')" class="card-glow w-full max-w-md rounded-[40px] p-10 text-white cursor-pointer shadow-2xl relative group">
+                    <div class="absolute top-6 right-8">
+                        <span class="text-[10px] font-bold bg-white/20 px-3 py-1 rounded-full uppercase tracking-widest backdrop-blur-sm">ACTIVE SYSTEM</span>
+                    </div>
+
+                    <div class="mb-8">
+                        <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center border border-white/30">
+                            <i class="fas fa-box-open text-2xl text-white"></i>
+                        </div>
+                    </div>
+
+                    <h4 class="text-4xl font-extrabold mb-4 leading-tight">Inventaris <br> Barang Lab</h4>
+                    <p class="text-white/70 text-sm mb-10">Ajukan peminjaman alat laboratorium, cek status ketersediaan, dan kelola aset dengan satu klik.</p>
+                    
+                    <div class="flex items-center gap-4">
+                        <div class="bg-white text-[#A44A3F] py-4 flex-1 rounded-2xl text-center font-extrabold text-lg group-hover:bg-[#4E342E] group-hover:text-white transition-all">
+                            Mulai Sekarang
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+       <div id="modalInventaris" class="fixed inset-0 bg-[#4E342E]/90 backdrop-blur-2xl hidden flex items-center justify-center z-[110] p-4">
+        <div class="bg-white rounded-[40px] shadow-2xl w-full max-w-6xl overflow-hidden flex flex-col md:flex-row h-[85vh] modal-enter relative">
+            
+            <div class="md:w-1/3 bg-[#A44A3F] p-12 text-white flex flex-col justify-between">
+                <div>
+                    <img src="LogoUnissula.png" alt="Logo UNISSULA" class="h-12">
+                    <h2 class="text-4xl font-extrabold mb-4">Formulir <br> Peminjaman</h2>
+                    <p class="text-white/60 text-sm">Silakan isi data peminjaman dengan lengkap sesuai prosedur laboratorium.</p>
+                </div>
+                <button onclick="toggleModal('modalInventaris')" class="text-white/50 font-bold text-left hover:text-white transition">← Kembali</button>
+            </div>
+
+            <div class="md:w-2/3 p-12 overflow-y-auto bg-white relative">
+                
+                <div class="absolute top-8 right-8">
+                    <button onclick="toggleModal('modalInventaris')" class="w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-red-50 hover:text-red-500 transition-all border border-gray-100 shadow-sm">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+
+                <div class="mt-10 space-y-10">
+                    <section class="unissula-border pl-6">
+                        <h3 class="text-2xl font-bold text-[#4E342E]">Informasi Peminjam</h3>
+                        <div class="mt-6">
+                            <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">Nomor Induk Mahasiswa</label>
+                            <div class="flex gap-4">
+                                <input type="text" class="flex-1 bg-gray-50 border-2 border-transparent focus:border-[#A44A3F] rounded-2xl p-4 outline-none transition font-bold" placeholder="30602300xxx">
+                                <button class="bg-[#4E342E] text-white px-8 rounded-2xl font-bold hover:bg-black transition shadow-lg">Verifikasi</button>
+                            </div>
+                        </div>
+                    </section>
+
+
+                            <div>
+                                <label class="block text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">Alat yang Dipinjam</label>
+                                <textarea class="w-full bg-gray-50 border-2 border-transparent focus:border-[#A44A3F] rounded-2xl p-4 outline-none transition min-h-[100px]" placeholder="Sebutkan alat dan jumlahnya..."></textarea>
+                            </div>
+                             <label class="block text-xs font-black text-gray-400 uppercase tracking-widest mb-2">Waktu Pinjam</label>
+                                    <input type="date" class="w-full bg-gray-50 border-2 border-transparent focus:border-[#A44A3F] rounded-2xl p-4 outline-none transition text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-black text-gray-400 uppercase tracking-widest mb-2">Waktu Kembali</label>
+                                    <input type="date" class="w-full bg-gray-50 border-2 border-transparent focus:border-[#A44A3F] rounded-2xl p-4 outline-none transition text-sm">
+                                </div>
+                                <div class="flex justify-end pt-6">
+                        <button class="bg-[#A44A3F] text-white px-12 py-5 rounded-2xl font-black text-lg shadow-2xl hover:scale-105 active:scale-95 transition-all">
+                            Ajukan Peminjaman
+                            </div>
+                        </div>
+                    </div>
+                        </div>
+                    </section>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+
+    <div id="modalLogin" class="fixed inset-0 bg-black/60 backdrop-blur-md hidden flex items-center justify-center z-[110] p-4">
+        <div class="bg-white rounded-[40px] shadow-2xl w-full max-w-md overflow-hidden modal-enter">
+            <div class="bg-[#4E342E] p-10 text-white text-center">
+                <h2 class="text-2xl font-bold">Login Mahasiswa</h2>
+                <button onclick="toggleModal('modalLogin')" class="mt-4 text-xs opacity-60">Tutup</button>
+            </div>
+            <div class="p-10 space-y-4">
+                <input type="text" class="w-full bg-gray-50 border-2 rounded-2xl p-4 outline-none" placeholder="NIM">
+                <input type="password" class="w-full bg-gray-50 border-2 rounded-2xl p-4 outline-none" placeholder="Password">
+                <button class="w-full bg-[#A44A3F] text-white py-4 rounded-2xl font-bold">Masuk</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalDashboard" class="fixed inset-0 bg-[#4E342E]/90 backdrop-blur-xl hidden flex items-center justify-center z-[110] p-4">
+        <div class="bg-white rounded-[40px] shadow-2xl w-full max-w-4xl p-10 modal-enter">
+            <div class="flex justify-between items-center mb-10">
+                <h2 class="text-3xl font-extrabold text-[#4E342E]">Dashboard Statistik</h2>
+                <button onclick="toggleModal('modalDashboard')" class="text-3xl">&times;</button>
+            </div>
+          
+
+    <script>
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.toggle('hidden');
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('fixed')) {
+                event.target.classList.add('hidden');
+            }
+        }
+     
+        
+    </script>
+</body>
+</html>
