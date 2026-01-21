@@ -38,7 +38,7 @@
                 <div class="bg-[#A44A3F] text-white w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 font-bold text-2xl">1</div>
                 <div>
                     <h3 class="text-2xl font-bold text-[#4E342E] mb-2">Etika Berpakaian</h3>
-                    <p class="text-gray-500 text-lg leading-relaxed">Mahasiswa wajib berpakaian rapi, sopan, dan berkerah. Dilarang keras menggunakan kaos oblong, celana pendek, atau sandal jepit.</p>
+                    <p class="text-gray-700 text-xl leading-relaxed">Mahasiswa wajib berpakaian rapi, sopan, dan berkerah. Dilarang keras menggunakan kaos oblong, celana pendek, atau sandal jepit.</p>
                 </div>
             </div>
 
@@ -46,7 +46,7 @@
                 <div class="bg-[#4E342E] text-white w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 font-bold text-2xl">2</div>
                 <div>
                     <h3 class="text-2xl font-bold text-[#4E342E] mb-2">Kebersihan & Kenyamanan</h3>
-                    <p class="text-gray-500 text-lg leading-relaxed">Dilarang membawa makanan dan minuman ke dalam lab. Pastikan sampah dibuang pada tempatnya dan kursi dirapikan kembali.</p>
+                    <p class="text-gray-700 text-xl leading-relaxed">Dilarang membawa makanan dan minuman ke dalam lab. Pastikan sampah dibuang pada tempatnya dan kursi dirapikan kembali.</p>
                 </div>
             </div>
 
@@ -54,7 +54,7 @@
                 <div class="bg-[#A44A3F] text-white w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 font-bold text-2xl">3</div>
                 <div>
                     <h3 class="text-2xl font-bold text-[#4E342E] mb-2">Penggunaan Perangkat</h3>
-                    <p class="text-gray-500 text-lg leading-relaxed">Dilarang mengubah konfigurasi hardware maupun software tanpa izin asisten lab. Laporkan segera jika ada kerusakan.</p>
+                    <p class="text-gray-700 text-xl leading-relaxed">Dilarang mengubah konfigurasi hardware maupun software tanpa izin asisten lab. Laporkan segera jika ada kerusakan.</p>
                 </div>
             </div>
 
@@ -62,7 +62,7 @@
                 <div class="bg-[#4E342E] text-white w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 font-bold text-2xl">4</div>
                 <div>
                     <h3 class="text-2xl font-bold text-[#4E342E] mb-2">Ketertiban & Ketenangan</h3>
-                    <p class="text-gray-500 text-lg leading-relaxed">Dilarang membuat kegaduhan, bermain game, atau melakukan aktivitas lain yang tidak berhubungan dengan praktikum.</p>
+                    <p class="text-gray-700 text-xl leading-relaxed">Dilarang membuat kegaduhan, bermain game, atau melakukan aktivitas lain yang tidak berhubungan dengan praktikum.</p>
                 </div>
             </div>
 
@@ -70,25 +70,14 @@
                 <div class="bg-[#A44A3F] text-white w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 font-bold text-2xl">5</div>
                 <div>
                     <h3 class="text-2xl font-bold text-[#4E342E] mb-2">Alas Kaki & Fasilitas Sepatu</h3>
-                    <p class="text-gray-500 text-lg leading-relaxed">Wajib melepaskan alas kaki sebelum memasuki area lab. Alas kaki harus ditata rapi pada rak sepatu yang tersedia.</p>
+                    <p class="text-gray-700 text-xl leading-relaxed">Wajib melepaskan alas kaki sebelum memasuki area lab. Alas kaki harus ditata rapi pada rak sepatu yang tersedia.</p>
                 </div>
             </div>
         </div>
-
-        <div class="flex justify-between items-center mt-10">
-            <button onclick="changeSlide(-1)" class="p-4 rounded-2xl bg-white text-[#A44A3F] hover:bg-[#A44A3F] hover:text-white transition-all shadow-lg font-bold">
-                <i class="fas fa-arrow-left mr-2"></i> Sebelumnya
-            </button>
-            
-            <span id="slideNumber" class="text-[#4E342E] font-bold">Poin 1 / 5</span>
-
-            <button onclick="changeSlide(1)" class="p-4 rounded-2xl bg-[#A44A3F] text-white hover:bg-[#4E342E] transition-all shadow-lg font-bold">
-                Selanjutnya <i class="fas fa-arrow-right ml-2"></i>
-            </button>
         </div>
 
-        <footer class="mt-16 text-center text-gray-400 text-sm italic">
-            "Bismillah - Membangun Khaira Ummah"
+        <footer class="fixed bottom-10 left-0 right-0 text-center text-gray-400 text-sm italic z-0">
+            "Bismillah - Khaira Ummah"
         </footer>
     </div>
 
@@ -96,6 +85,7 @@
         let currentSlide = 0;
         const slides = document.querySelectorAll('.peraturan-slide');
         const slideNumber = document.getElementById('slideNumber');
+        let slideTimer;
 
         function showSlide(index) {
             slides.forEach(s => s.classList.remove('slide-active'));
@@ -105,10 +95,24 @@
             slideNumber.innerText = `Poin ${currentSlide + 1} / ${slides.length}`;
         }
 
-        function changeSlide(step) {
+        // Fungsi pindah otomatis
+        function startAutoSlide() {
+            slideTimer = setInterval(() => {
+                currentSlide++;
+                showSlide(currentSlide);
+            }, 5000); // 5000ms = 3,5 detik
+        }
+
+        // Fungsi jika diklik manual (timer reset biar gak tabrakan)
+        function manualChange(step) {
+            clearInterval(slideTimer); // Stop timer sebentar
             currentSlide += step;
             showSlide(currentSlide);
+            startAutoSlide(); // Jalanin lagi timernya
         }
+
+        // Jalankan otomatis pas halaman dibuka
+        startAutoSlide();
     </script>
 </body>
 </html>
