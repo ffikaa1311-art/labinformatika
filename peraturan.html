@@ -8,69 +8,107 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Outfit', sans-serif; background-color: #FDF5E6; }
-        .unissula-border { border-left: 6px solid #A44A3F; }
+        body { font-family: 'Outfit', sans-serif; background-color: #FDF5E6; overflow: hidden; }
+        .unissula-border { border-left: 8px solid #A44A3F; }
+        
+        .peraturan-slide { display: none; }
+        .slide-active { 
+            display: flex !important; 
+            animation: fadeSlide 0.6s ease-out; 
+        }
+
+        @keyframes fadeSlide {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
-<body class="p-8">
-    <div class="max-w-4xl mx-auto">
+<body class="h-screen flex items-center justify-center p-6">
+    <div class="max-w-4xl w-full">
         <a href="index.html" class="inline-flex items-center gap-2 text-[#4E342E] font-bold mb-10 hover:text-[#A44A3F] transition">
             <i class="fas fa-arrow-left"></i> Kembali ke Beranda
         </a>
 
-        <header class="mb-12">
+        <header class="mb-12 text-center md:text-left">
             <h1 class="text-5xl font-extrabold text-[#4E342E] mb-4">Tata Tertib & <br><span class="text-[#A44A3F]">Peraturan Lab</span></h1>
-            <p class="text-gray-500">Harap dipatuhi oleh seluruh civitas akademika UNISSULA demi kenyamanan bersama.</p>
         </header>
 
-        <div class="grid gap-6">
-            <div class="bg-white p-8 rounded-[40px] shadow-sm unissula-border flex gap-6 items-start">
-                <div class="bg-[#A44A3F] text-white w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 font-bold text-xl shadow-lg">1</div>
+        <div class="relative h-[320px] md:h-[250px]">
+            <div class="peraturan-slide slide-active bg-white p-8 md:p-10 rounded-[40px] shadow-2xl unissula-border gap-6 items-start h-full">
+                <div class="bg-[#A44A3F] text-white w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 font-bold text-2xl">1</div>
                 <div>
-                    <h3 class="text-xl font-bold text-[#4E342E] mb-2">Etika Berpakaian</h3>
-                    <p class="text-gray-500 leading-relaxed">Mahasiswa wajib berpakaian rapi, sopan, dan berkerah. Dilarang keras menggunakan kaos oblong, celana pendek, atau sandal jepit selama di area laboratorium.</p>
+                    <h3 class="text-2xl font-bold text-[#4E342E] mb-2">Etika Berpakaian</h3>
+                    <p class="text-gray-500 text-lg leading-relaxed">Mahasiswa wajib berpakaian rapi, sopan, dan berkerah. Dilarang keras menggunakan kaos oblong, celana pendek, atau sandal jepit.</p>
                 </div>
             </div>
 
-            <div class="bg-white p-8 rounded-[40px] shadow-sm unissula-border flex gap-6 items-start border-l-[#4E342E]">
-                <div class="bg-[#4E342E] text-white w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 font-bold text-xl shadow-lg">2</div>
+            <div class="peraturan-slide bg-white p-8 md:p-10 rounded-[40px] shadow-2xl unissula-border gap-6 items-start h-full border-l-[#4E342E]">
+                <div class="bg-[#4E342E] text-white w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 font-bold text-2xl">2</div>
                 <div>
-                    <h3 class="text-xl font-bold text-[#4E342E] mb-2">Kebersihan & Kenyamanan</h3>
-                    <p class="text-gray-500 leading-relaxed">Dilarang membawa makanan dan minuman dalam bentuk apapun ke dalam lab. Pastikan sampah dibuang pada tempatnya dan kursi dirapikan kembali.</p>
+                    <h3 class="text-2xl font-bold text-[#4E342E] mb-2">Kebersihan & Kenyamanan</h3>
+                    <p class="text-gray-500 text-lg leading-relaxed">Dilarang membawa makanan dan minuman ke dalam lab. Pastikan sampah dibuang pada tempatnya dan kursi dirapikan kembali.</p>
                 </div>
             </div>
 
-           <div class="space-y-6"> 
-
-    <div class="bg-white p-8 rounded-[40px] shadow-sm unissula-border flex gap-6 items-start">
-                <div class="bg-[#A44A3F] text-white w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 font-bold text-xl shadow-lg">3</div>
+            <div class="peraturan-slide bg-white p-8 md:p-10 rounded-[40px] shadow-2xl unissula-border gap-6 items-start h-full">
+                <div class="bg-[#A44A3F] text-white w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 font-bold text-2xl">3</div>
                 <div>
-            <h4 class="text-lg font-bold text-[#4E342E] mb-1">Penggunaan Perangkat</h4>
-            <p class="text-gray-500 leading-relaxed">Dilarang mengubah konfigurasi hardware maupun software tanpa izin asisten lab. Laporkan segera jika ada kerusakan pada perangkat yang digunakan.</p>
-        </div>
-    </div>
+                    <h3 class="text-2xl font-bold text-[#4E342E] mb-2">Penggunaan Perangkat</h3>
+                    <p class="text-gray-500 text-lg leading-relaxed">Dilarang mengubah konfigurasi hardware maupun software tanpa izin asisten lab. Laporkan segera jika ada kerusakan.</p>
+                </div>
+            </div>
 
-  <div class="bg-white p-8 rounded-[40px] shadow-sm unissula-border flex gap-6 items-start">
-                <div class="bg-[#4E342E] text-white w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 font-bold text-xl shadow-lg">4</div>
+            <div class="peraturan-slide bg-white p-8 md:p-10 rounded-[40px] shadow-2xl unissula-border gap-6 items-start h-full border-l-[#4E342E]">
+                <div class="bg-[#4E342E] text-white w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 font-bold text-2xl">4</div>
                 <div>
-            <h4 class="text-lg font-bold text-[#4E342E] mb-1">Ketertiban & Ketenangan</h4>
-            <p class="text-gray-500 leading-relaxed">Dilarang membuat kegaduhan, bermain game, atau melakukan aktivitas lain yang tidak berhubungan dengan praktikum/tugas.</p>
-        </div>
-    </div>
+                    <h3 class="text-2xl font-bold text-[#4E342E] mb-2">Ketertiban & Ketenangan</h3>
+                    <p class="text-gray-500 text-lg leading-relaxed">Dilarang membuat kegaduhan, bermain game, atau melakukan aktivitas lain yang tidak berhubungan dengan praktikum.</p>
+                </div>
+            </div>
 
-   <div class="bg-white p-8 rounded-[40px] shadow-sm unissula-border flex gap-6 items-start">
-                <div class="bg-[#A44A3F] text-white w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 font-bold text-xl shadow-lg">5</div>
+            <div class="peraturan-slide bg-white p-8 md:p-10 rounded-[40px] shadow-2xl unissula-border gap-6 items-start h-full">
+                <div class="bg-[#A44A3F] text-white w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 font-bold text-2xl">5</div>
                 <div>
-            <h4 class="text-lg font-bold text-[#4E342E] mb-1">Alas Kaki & Fasilitas Sepatu</h4>
-            <p class="text-gray-500 leading-relaxed">Wajib melepaskan alas kaki sebelum memasuki area laboratorium. Alas kaki harus ditata rapi pada rak sepatu yang tersedia.</p>
+                    <h3 class="text-2xl font-bold text-[#4E342E] mb-2">Alas Kaki & Fasilitas Sepatu</h3>
+                    <p class="text-gray-500 text-lg leading-relaxed">Wajib melepaskan alas kaki sebelum memasuki area lab. Alas kaki harus ditata rapi pada rak sepatu yang tersedia.</p>
+                </div>
+            </div>
         </div>
-    </div>
 
-</div>
+        <div class="flex justify-between items-center mt-10">
+            <button onclick="changeSlide(-1)" class="p-4 rounded-2xl bg-white text-[#A44A3F] hover:bg-[#A44A3F] hover:text-white transition-all shadow-lg font-bold">
+                <i class="fas fa-arrow-left mr-2"></i> Sebelumnya
+            </button>
+            
+            <span id="slideNumber" class="text-[#4E342E] font-bold">Poin 1 / 5</span>
+
+            <button onclick="changeSlide(1)" class="p-4 rounded-2xl bg-[#A44A3F] text-white hover:bg-[#4E342E] transition-all shadow-lg font-bold">
+                Selanjutnya <i class="fas fa-arrow-right ml-2"></i>
+            </button>
         </div>
+
         <footer class="mt-16 text-center text-gray-400 text-sm italic">
             "Bismillah - Membangun Khaira Ummah"
         </footer>
     </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.peraturan-slide');
+        const slideNumber = document.getElementById('slideNumber');
+
+        function showSlide(index) {
+            slides.forEach(s => s.classList.remove('slide-active'));
+            if (index >= slides.length) currentSlide = 0;
+            if (index < 0) currentSlide = slides.length - 1;
+            slides[currentSlide].classList.add('slide-active');
+            slideNumber.innerText = `Poin ${currentSlide + 1} / ${slides.length}`;
+        }
+
+        function changeSlide(step) {
+            currentSlide += step;
+            showSlide(currentSlide);
+        }
+    </script>
 </body>
 </html>
