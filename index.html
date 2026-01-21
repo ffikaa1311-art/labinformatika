@@ -9,122 +9,133 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --coklat-kopi: #4E342E;
-            --coklat-bata: #A44A3F;
-            --cream: #FDF5E6;
+            --coklat-tua: #2D1B18;
+            --coklat-muda: #4E342E;
+            --aksen: #A44A3F;
         }
-        body { font-family: 'Outfit', sans-serif; background-color: var(--cream); }
-        .bg-pattern { background-color: #4E342E; background-image: url("https://www.transparenttextures.com/patterns/cubes.png"); }
+        body { font-family: 'Outfit', sans-serif; background-color: #F8F5F2; }
         
-        /* Style Kartu Inventaris sesuai Gambar */
+        /* Banner Cokelat Hero sesuai Foto */
+        .hero-banner {
+            background-color: var(--coklat-tua);
+            background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+
+        /* Kartu Inventaris sesuai Foto */
         .card-inventaris {
-            background-color: var(--coklat-kopi);
-            border-radius: 40px;
+            background-color: #5D4037;
+            border-radius: 35px;
             padding: 40px;
             color: white;
-            transition: all 0.3s ease;
+            max-width: 450px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
-        
-        .hidden-section { display: none; }
-        .fade-in { animation: fadeIn 0.4s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .btn-mulai {
+            background-color: #D7CCC8;
+            color: #4E342E;
+            font-weight: 800;
+            border-radius: 15px;
+            padding: 12px;
+            width: 100%;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .hidden-content { display: none; }
+        .fade-in { animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
 
-    <nav class="fixed top-0 w-full z-50 px-6 py-4">
-        <div class="max-w-7xl mx-auto bg-white/80 backdrop-blur-xl border border-white/20 rounded-2xl px-8 py-4 flex justify-between items-center shadow-xl">
-            <div class="flex items-center gap-4 cursor-pointer" onclick="changeTab('home')">
-                <img src="LogoUnissula.png" alt="Logo" class="h-10">
+    <nav class="fixed top-0 w-full z-50 p-4">
+        <div class="max-w-6xl mx-auto bg-white/90 backdrop-blur-md rounded-2xl shadow-lg px-8 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
+                    <img src="https://unissula.ac.id/wp-content/uploads/2022/03/Logo-Unissula-300x300.png" class="h-8">
+                </div>
                 <div>
-                    <h1 class="text-xl font-extrabold text-[#4E342E] leading-none">UNISSULA</h1>
-                    <p class="text-[10px] uppercase tracking-widest text-[#A44A3F] font-bold">Lab Informatika</p>
+                    <h1 class="font-bold text-sm leading-tight">UNISSULA</h1>
+                    <p class="text-[10px] text-gray-500 uppercase tracking-widest">Lab Informatika</p>
                 </div>
             </div>
-            <div class="flex gap-6 items-center">
-                <button onclick="changeTab('home')" class="text-sm font-semibold text-[#4E342E]">Dashboard</button>
-                <button onclick="changeTab('peraturan')" class="text-sm font-bold text-[#A44A3F] border-b-2 border-transparent hover:border-[#A44A3F]">Peraturan</button>
-                <button class="bg-[#1A1A1A] text-white px-8 py-2.5 rounded-2xl text-sm font-bold">Login</button>
+            <div class="flex items-center gap-6">
+                <button onclick="switchTab('home')" class="text-sm font-semibold hover:text-[#A44A3F]">Home</button>
+                <button onclick="switchTab('peraturan')" class="bg-[#EFEBE9] text-[#4E342E] px-4 py-2 rounded-xl text-sm font-bold">Peraturan Lab</button>
+                <button class="bg-[#2D1B18] text-white px-6 py-2 rounded-xl text-sm font-bold">Login</button>
             </div>
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-6 pt-32 pb-20">
-        
-        <div class="mb-12">
-            <h2 id="tab-title" class="text-5xl font-extrabold text-[#4E342E] leading-tight">
-                Membangun <span class="text-[#D4A373]">Generasi Digital</span><br>Berakhlak Mulia
-            </h2>
+    <header class="hero-banner pt-32 pb-20 px-8 text-white">
+        <div class="max-w-6xl mx-auto">
+            <span class="bg-[#A44A3F]/30 border border-[#A44A3F] px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Bismillah - Khaira Ummah</span>
+            <h2 id="heroTitle" class="text-5xl font-extrabold mt-6 leading-tight">Membangun <br><span class="text-[#D4A373]">Generasi Digital</span></h2>
         </div>
+    </header>
 
-        <div id="section-peraturan" class="hidden-section fade-in mb-16">
-            <div class="bg-white rounded-[40px] p-10 shadow-sm border border-gray-100">
-                <h3 class="text-2xl font-bold text-[#4E342E] mb-6 flex items-center gap-3">
-                    <i class="fas fa-gavel text-[#A44A3F]"></i> Tata Tertib Laboratorium
-                </h3>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="p-4 border-l-4 border-[#A44A3F] bg-gray-50 rounded-r-xl">
-                        <p class="font-bold text-sm">1. Pakaian Rapi</p>
-                        <p class="text-xs text-gray-500">Wajib menggunakan kemeja berkerah, dilarang memakai kaos oblong.</p>
-                    </div>
-                    <div class="p-4 border-l-4 border-[#A44A3F] bg-gray-50 rounded-r-xl">
-                        <p class="font-bold text-sm">2. No Food & Drink</p>
-                        <p class="text-xs text-gray-500">Dilarang membawa makanan/minuman ke area komputer.</p>
-                    </div>
-                    <div class="p-4 border-l-4 border-[#A44A3F] bg-gray-50 rounded-r-xl">
-                        <p class="font-bold text-sm">3. Alas Kaki</p>
-                        <p class="text-xs text-gray-500">Wajib melepas alas kaki dan menaruhnya di rak sepatu.</p>
-                    </div>
-                    <div class="p-4 border-l-4 border-[#A44A3F] bg-gray-50 rounded-r-xl">
-                        <p class="font-bold text-sm">4. Ketenangan</p>
-                        <p class="text-xs text-gray-500">Dilarang membuat kegaduhan atau bermain game saat praktikum.</p>
-                    </div>
+    <main class="max-w-6xl mx-auto px-8 py-16 min-h-[400px]">
+        
+        <div id="content-peraturan" class="hidden-content fade-in mb-16">
+            <h3 class="text-2xl font-black text-[#2D1B18] mb-8">Daftar Larangan & Peraturan</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-white p-5 rounded-2xl border-l-4 border-red-500 shadow-sm">
+                    <p class="font-bold text-sm">Dilarang Membawa Makanan/Minuman</p>
+                    <p class="text-xs text-gray-500 mt-1">Demi menjaga kebersihan dan keamanan perangkat elektronik.</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border-l-4 border-red-500 shadow-sm">
+                    <p class="font-bold text-sm">Wajib Melepas Alas Kaki</p>
+                    <p class="text-xs text-gray-500 mt-1">Harap diletakkan di rak yang sudah disediakan dengan rapi.</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border-l-4 border-red-500 shadow-sm">
+                    <p class="font-bold text-sm">Dilarang Mengubah Konfigurasi PC</p>
+                    <p class="text-xs text-gray-500 mt-1">Dilarang membongkar casing atau mencabut kabel tanpa izin asisten.</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border-l-4 border-red-500 shadow-sm">
+                    <p class="font-bold text-sm">Dilarang Membuat Kegaduhan</p>
+                    <p class="text-xs text-gray-500 mt-1">Gunakan headset untuk keperluan audio agar tidak mengganggu yang lain.</p>
                 </div>
             </div>
         </div>
 
-        <div id="section-inventaris" class="fade-in">
-            <div class="max-w-md">
-                <div class="card-inventaris relative shadow-2xl">
-                    <div class="absolute top-6 right-8">
-                        <span class="text-[10px] font-bold bg-white/20 px-3 py-1 rounded-full uppercase tracking-widest backdrop-blur-sm text-white">ACTIVE SYSTEM</span>
-                    </div>
-                    
-                    <div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-8 border border-white/20">
-                        <i class="fas fa-box-open text-2xl"></i>
-                    </div>
-
-                    <h4 class="text-4xl font-extrabold mb-4 leading-tight">Inventaris<br>Barang Lab</h4>
-                    <p class="text-white/70 text-sm mb-10 leading-relaxed">
-                        Ajukan peminjaman alat laboratorium, cek status ketersediaan, dan kelola aset dengan satu klik.
-                    </p>
-                    
-                    <button class="w-full bg-white text-[#4E342E] py-4 rounded-2xl font-extrabold text-lg hover:bg-gray-100 transition-all">
-                        Mulai Sekarang
-                    </button>
+        <div id="content-inventaris" class="fade-in">
+            <div class="card-inventaris relative">
+                <div class="absolute top-6 right-8 bg-white/10 px-3 py-1 rounded-full border border-white/20">
+                    <span class="text-[9px] font-bold uppercase tracking-widest">Active System</span>
                 </div>
+                <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-6">
+                    <i class="fas fa-box text-xl"></i>
+                </div>
+                <h4 class="text-3xl font-extrabold mb-3">Inventaris<br>Barang Lab</h4>
+                <p class="text-white/60 text-xs leading-relaxed">
+                    Ajukan peminjaman alat laboratorium, cek status ketersediaan, dan kelola aset dengan satu klik.
+                </p>
+                <button class="btn-mulai">Mulai Sekarang</button>
             </div>
         </div>
 
     </main>
 
     <script>
-        function changeTab(page) {
-            const title = document.getElementById('tab-title');
-            const rulesSection = document.getElementById('section-peraturan');
-            const inventarisSection = document.getElementById('section-inventaris');
+        function switchTab(tab) {
+            const peraturan = document.getElementById('content-peraturan');
+            const inventaris = document.getElementById('content-inventaris');
+            const title = document.getElementById('heroTitle');
 
-            if(page === 'peraturan') {
-                title.innerHTML = 'Aturan & <span class="text-[#D4A373]">Etika</span><br>Laboratorium';
-                rulesSection.classList.remove('hidden-section');
-                // Tetap biarkan inventaris di bawah jika ingin keduanya muncul, 
-                // atau gunakan inventarisSection.classList.add('hidden-section') jika ingin benar-benar ganti halaman.
+            if (tab === 'peraturan') {
+                peraturan.classList.remove('hidden-content');
+                // Inventaris tetap muncul di bawah atau bisa di-hidden (opsional)
+                title.innerHTML = "Etika & <br><span class='text-[#D4A373]'>Peraturan</span> Lab";
             } else {
-                title.innerHTML = 'Membangun <span class="text-[#D4A373]">Generasi Digital</span><br>Berakhlak Mulia';
-                rulesSection.classList.add('hidden-section');
-                inventarisSection.classList.remove('hidden-section');
+                peraturan.classList.add('hidden-content');
+                title.innerHTML = "Membangun <br><span class='text-[#D4A373]'>Generasi Digital</span>";
             }
+            window.scrollTo({ top: 350, behavior: 'smooth' });
         }
     </script>
+
 </body>
 </html>
