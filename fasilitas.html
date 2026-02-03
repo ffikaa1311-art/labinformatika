@@ -8,128 +8,126 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
+        :root { --kuning: #D4A017; --kuning-gelap: #B8860B; }
         body { font-family: 'Outfit', sans-serif; background-color: #FDF5E6; scroll-behavior: smooth; }
+        
         .hero-bg { 
-            background: linear-gradient(rgba(78, 52, 46, 0.8), rgba(78, 52, 46, 0.8)), 
-            url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop'); 
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+            url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070'); 
             background-size: cover;
             background-position: center;
         }
-        /* Custom scrollbar untuk foto */
+        
+        /* Kartu dengan shadow kuning tipis */
+        .card-kuning {
+            background: white;
+            border-radius: 40px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            box-shadow: 0 20px 40px -15px rgba(212, 160, 23, 0.3);
+        }
+        .card-kuning:hover {
+            transform: translateY(-10px);
+            border-color: var(--kuning);
+            box-shadow: 0 30px 50px -10px rgba(212, 160, 23, 0.5);
+        }
+
         .scrollbar-hide::-webkit-scrollbar { display: none; }
-        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body>
 
-    <header class="hero-bg h-[40vh] flex items-center justify-center text-white text-center px-6">
+    <header class="hero-bg h-[40vh] flex items-center justify-center text-white text-center px-6 border-b-8 border-[#D4A017]">
         <div>
-            <h1 class="text-5xl font-extrabold mb-4">Fasilitas Laboratorium Informatika</h1>
-            <p class="text-orange-200 tracking-widest uppercase font-bold text-sm">Universitas Sultan Agung-FTI</p>
+            <span class="inline-block px-4 py-1.5 bg-[#D4A017]/20 border border-[#D4A017] rounded-full text-[10px] font-bold tracking-[0.3em] uppercase text-[#FFD700] mb-4">Informatics Facilities</span>
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-2">Fasilitas Laboratorium</h1>
+            <p class="text-gray-300 tracking-widest uppercase font-bold text-xs">Universitas Islam Sultan Agung-FTI</p>
         </div>
     </header>
 
-    <section class="py-16 px-6 bg-gray-50">
+    <section class="py-16 px-6">
         <div class="max-w-6xl mx-auto text-center">
             
             <div class="grid md:grid-cols-3 gap-10">
-                <a href="#tampilan-1" 
-                class="block bg-white p-10 rounded-[40px] transition-all duration-300 hover:-translate-y-3 border-2 border-transparent hover:border-[#A44A3F]"
-                style="box-shadow: 0 25px 50px -12px rgba(164, 74, 63, 0.5);">
-                    <div class="w-20 h-20 bg-red-50 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-inner">
-                        <span class="text-5xl">📸</span>
+                <a href="#tampilan-1" class="card-kuning p-10 block group">
+                    <div class="w-20 h-20 bg-yellow-50 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-inner group-hover:bg-[#D4A017]/10">
+                        <i class="fas fa-camera-retro text-4xl text-[#D4A017]"></i>
                     </div>
-                    <h3 class="font-bold text-xl text-gray-800">Tour Visual Lab</h3>
-                    <p class="text-sm text-[#A44A3F] font-semibold mt-3">Eksplorasi Ruangan →</p>
+                    <h3 class="font-bold text-xl text-gray-800">Visualisasi Ruangan</h3>
+                    <p class="text-sm text-[#D4A017] font-bold mt-4 uppercase tracking-wider">Eksplorasi Ruangan <i class="fas fa-arrow-right ml-1 text-xs"></i></p>
                 </a>
 
-                <a href="#tampilan-2" 
-                class="block bg-white p-10 rounded-[40px] transition-all duration-300 hover:-translate-y-3 border-2 border-transparent hover:border-[#A44A3F]"
-                style="box-shadow: 0 25px 50px -12px rgba(164, 74, 63, 0.5);">
-                    <div class="w-20 h-20 bg-blue-50 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-inner">
-                        <span class="text-5xl">💻</span>
+                <a href="#tampilan-2" class="card-kuning p-10 block group">
+                    <div class="w-20 h-20 bg-yellow-50 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-inner group-hover:bg-[#D4A017]/10">
+                        <i class="fas fa-microchip text-4xl text-[#D4A017]"></i>
                     </div>
                     <h3 class="font-bold text-xl text-gray-800">Spesifikasi Alat</h3>
-                    <p class="text-sm text-[#A44A3F] font-semibold mt-3">Detail Hardware →</p>
+                    <p class="text-sm text-[#D4A017] font-bold mt-4 uppercase tracking-wider">Detail Hardware <i class="fas fa-arrow-right ml-1 text-xs"></i></p>
                 </a>
 
-                <a href="#tampilan-3" 
-                class="block bg-white p-10 rounded-[40px] transition-all duration-300 hover:-translate-y-3 border-2 border-transparent hover:border-[#A44A3F]"
-                style="box-shadow: 0 25px 50px -12px rgba(164, 74, 63, 0.5);">
-                    <div class="w-20 h-20 bg-green-50 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-inner">
-                        <span class="text-5xl">⚡</span>
+                <a href="#tampilan-3" class="card-kuning p-10 block group">
+                    <div class="w-20 h-20 bg-yellow-50 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-inner group-hover:bg-[#D4A017]/10">
+                        <i class="fas fa-wifi text-4xl text-[#D4A017]"></i>
                     </div>
                     <h3 class="font-bold text-xl text-gray-800">Akses & Koneksi</h3>
-                    <p class="text-sm text-[#A44A3F] font-semibold mt-3">Info Jaringan →</p>
+                    <p class="text-sm text-[#D4A017] font-bold mt-4 uppercase tracking-wider">Info Jaringan <i class="fas fa-arrow-right ml-1 text-xs"></i></p>
                 </a>
             </div>
 
-            <div id="tampilan-1" class="fixed inset-0 bg-black/80 hidden target:flex items-center justify-center z-[99] p-6 backdrop-blur-sm transition-all">
-                <div class="bg-white w-full max-w-2xl p-8 rounded-[40px] relative shadow-2xl">
-                    <a href="#" class="absolute top-6 right-8 text-3xl text-gray-400 hover:text-black">&times;</a>
-                    <h2 class="text-2xl font-bold mb-6 text-[#A44A3F]">Tour Visual Lab</h2>
+            <div id="tampilan-1" class="fixed inset-0 bg-black/80 hidden target:flex items-center justify-center z-[99] p-6 backdrop-blur-md">
+                <div class="bg-white w-full max-w-2xl p-8 rounded-[40px] relative shadow-2xl border-t-8 border-[#D4A017]">
+                    <a href="#" class="absolute top-6 right-8 text-3xl text-gray-400 hover:text-[#D4A017]">&times;</a>
+                    <h2 class="text-2xl font-bold mb-6 text-[#1A1A1A]">Tour Visual <span class="text-[#D4A017]">Lab</span></h2>
                     <div class="flex overflow-x-auto space-x-4 pb-4 snap-x scrollbar-hide">
-                        <div class="w-72 shrink-0 rounded-3xl h-48 bg-gray-200 flex items-center justify-center text-gray-400 border-2 border-dashed border-gray-300 italic text-sm">Preview Foto 1</div>
-                        <div class="w-72 shrink-0 rounded-3xl h-48 bg-gray-200 flex items-center justify-center text-gray-400 border-2 border-dashed border-gray-300 italic text-sm">Preview Foto 2</div>
-                        <div class="w-72 shrink-0 rounded-3xl h-48 bg-gray-200 flex items-center justify-center text-gray-400 border-2 border-dashed border-gray-300 italic text-sm">Preview Foto 3</div>
+                        <div class="w-72 shrink-0 rounded-3xl h-48 bg-gray-100 flex items-center justify-center text-gray-400 border-2 border-dashed border-[#D4A017]/30 italic text-sm">Preview Foto 1</div>
+                        <div class="w-72 shrink-0 rounded-3xl h-48 bg-gray-100 flex items-center justify-center text-gray-400 border-2 border-dashed border-[#D4A017]/30 italic text-sm">Preview Foto 2</div>
+                        <div class="w-72 shrink-0 rounded-3xl h-48 bg-gray-100 flex items-center justify-center text-gray-400 border-2 border-dashed border-[#D4A017]/30 italic text-sm">Preview Foto 3</div>
                     </div>
-                    <p class="mt-4 text-gray-400 text-xs italic">Geser untuk melihat lebih banyak</p>
+                    <p class="mt-4 text-[#D4A017] text-[10px] font-bold uppercase tracking-widest">Geser untuk melihat foto</p>
                 </div>
             </div>
 
-            <div id="tampilan-2" class="fixed inset-0 bg-black/80 hidden target:flex items-center justify-center z-[99] p-6 backdrop-blur-sm transition-all">
-                <div class="bg-white w-full max-w-2xl p-8 rounded-[40px] relative shadow-2xl">
-                    <a href="#" class="absolute top-6 right-8 text-3xl text-gray-400 hover:text-black">&times;</a>
-                    <h2 class="text-2xl font-bold mb-6 text-[#A44A3F]">Spesifikasi Hardware</h2>
-                    <div class="overflow-hidden border border-gray-100 rounded-2xl">
+            <div id="tampilan-2" class="fixed inset-0 bg-black/80 hidden target:flex items-center justify-center z-[99] p-6 backdrop-blur-md">
+                <div class="bg-white w-full max-w-2xl p-8 rounded-[40px] relative shadow-2xl border-t-8 border-[#D4A017]">
+                    <a href="#" class="absolute top-6 right-8 text-3xl text-gray-400 hover:text-[#D4A017]">&times;</a>
+                    <h2 class="text-2xl font-bold mb-6 text-[#1A1A1A]">Spesifikasi <span class="text-[#D4A017]">Hardware</span></h2>
+                    <div class="overflow-hidden border border-yellow-100 rounded-3xl">
                         <table class="w-full text-left">
-                            <tr class="bg-gray-50 font-bold text-[#4E342E]">
-                                <td class="p-4">Komponen</td>
-                                <td class="p-4">Detail Spesifikasi</td>
+                            <tr class="bg-yellow-50 font-bold text-[#1A1A1A]">
+                                <td class="p-4 text-sm">Komponen</td>
+                                <td class="p-4 text-sm">Detail Spesifikasi</td>
                             </tr>
-                            <tr class="border-t">
-                                <td class="p-4 font-bold text-sm">Processor</td>
-                                <td class="p-4 text-sm text-gray-600">Intel Core i9-13900K / AMD Ryzen 9</td>
+                            <tr class="border-t border-yellow-50">
+                                <td class="p-4 font-bold text-xs text-[#D4A017] uppercase">Processor</td>
+                                <td class="p-4 text-sm text-gray-600 font-semibold">Intel Core i9-13900K / AMD Ryzen 9</td>
                             </tr>
-                            <tr class="border-t">
-                                <td class="p-4 font-bold text-sm">Graphics (GPU)</td>
-                                <td class="p-4 text-sm text-gray-600">NVIDIA GeForce RTX 4070 Ti 12GB</td>
+                            <tr class="border-t border-yellow-50">
+                                <td class="p-4 font-bold text-xs text-[#D4A017] uppercase">Graphics</td>
+                                <td class="p-4 text-sm text-gray-600 font-semibold">NVIDIA GeForce RTX 4070 Ti 12GB</td>
                             </tr>
-                            <tr class="border-t">
-                                <td class="p-4 font-bold text-sm">Memory (RAM)</td>
-                                <td class="p-4 text-sm text-gray-600">64GB DDR5 Dual Channel</td>
-                            </tr>
-                            <tr class="border-t">
-                                <td class="p-4 font-bold text-sm">Storage</td>
-                                <td class="p-4 text-sm text-gray-600">2TB NVMe Gen4 SSD</td>
+                            <tr class="border-t border-yellow-50">
+                                <td class="p-4 font-bold text-xs text-[#D4A017] uppercase">Memory</td>
+                                <td class="p-4 text-sm text-gray-600 font-semibold">64GB DDR5 Dual Channel</td>
                             </tr>
                         </table>
                     </div>
                 </div>
             </div>
 
-            <div id="tampilan-3" class="fixed inset-0 bg-black/80 hidden target:flex items-center justify-center z-[99] p-6 backdrop-blur-sm transition-all">
-                <div class="bg-white w-full max-w-2xl p-8 rounded-[40px] relative shadow-2xl">
-                    <a href="#" class="absolute top-6 right-8 text-3xl text-gray-400 hover:text-black">&times;</a>
-                    <h2 class="text-2xl font-bold mb-6 text-[#A44A3F]">Akses & Konektivitas</h2>
+            <div id="tampilan-3" class="fixed inset-0 bg-black/80 hidden target:flex items-center justify-center z-[99] p-6 backdrop-blur-md">
+                <div class="bg-white w-full max-w-2xl p-8 rounded-[40px] relative shadow-2xl border-t-8 border-[#D4A017]">
+                    <a href="#" class="absolute top-6 right-8 text-3xl text-gray-400 hover:text-[#D4A017]">&times;</a>
+                    <h2 class="text-2xl font-bold mb-6 text-[#1A1A1A]">Akses & <span class="text-[#D4A017]">Konektivitas</span></h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="p-6 bg-green-50 rounded-3xl border border-green-100">
-                            <i class="fas fa-wifi text-green-600 text-2xl mb-3"></i>
-                            <h4 class="font-bold text-[#4E342E]">Wi-Fi 6 (High Speed)</h4>
-                            <p class="text-sm text-gray-600">Koneksi nirkabel hingga 1.2 Gbps untuk seluruh area Lab.</p>
+                        <div class="p-6 bg-yellow-50 rounded-3xl border border-yellow-100">
+                            <i class="fas fa-bolt text-[#D4A017] text-2xl mb-3"></i>
+                            <h4 class="font-bold text-[#1A1A1A]">High Speed Wi-Fi</h4>
+                            <p class="text-[11px] text-gray-500 font-medium">Koneksi nirkabel hingga 1.2 Gbps stabil.</p>
                         </div>
-                        <div class="p-6 bg-blue-50 rounded-3xl border border-blue-100">
-                            <i class="fas fa-ethernet text-blue-600 text-2xl mb-3"></i>
-                            <h4 class="font-bold text-[#4E342E]">Gigabit LAN</h4>
-                            <p class="text-sm text-gray-600">Port Ethernet tersedia di setiap meja untuk koneksi stabil.</p>
-                        </div>
-                        <div class="p-6 bg-purple-50 rounded-3xl border border-purple-100 md:col-span-2 text-left">
-                            <h4 class="font-bold text-[#4E342E] mb-2">Prosedur Akses:</h4>
-                            <ul class="text-sm text-gray-600 space-y-1">
-                                <li>1. Login menggunakan akun SIA UNISSULA.</li>
-                                <li>2. Gunakan VPN Kampus untuk akses database dari luar.</li>
-                                <li>3. Bandwidth terbagi secara otomatis (QoS) untuk kelancaran praktikum.</li>
-                            </ul>
+                        <div class="p-6 bg-yellow-50 rounded-3xl border border-yellow-100">
+                            <i class="fas fa-shield-alt text-[#D4A017] text-2xl mb-3"></i>
+                            <h4 class="font-bold text-[#1A1A1A]">Secure LAN</h4>
+                            <p class="text-[11px] text-gray-500 font-medium">Gigabit port tersedia di setiap meja praktikan.</p>
                         </div>
                     </div>
                 </div>
@@ -137,8 +135,8 @@
 
             <div class="mt-20">
                 <button onclick="window.location.href='index.html'" 
-                        class="inline-flex items-center gap-3 bg-[#A44A3F] text-white px-10 py-4 rounded-2xl font-bold shadow-2xl hover:bg-[#4E342E] transition-all hover:scale-105 active:scale-95">
-                    <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+                        class="inline-flex items-center gap-3 bg-[#1A1A1A] text-white px-10 py-4 rounded-2xl font-bold shadow-2xl hover:bg-[#D4A017] transition-all hover:scale-105 active:scale-95">
+                    <i class="fas fa-arrow-left text-xs"></i> Kembali ke Beranda
                 </button>
             </div>
 
@@ -147,5 +145,3 @@
 
 </body>
 </html>
-
-
