@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOP Lab Informatika | UNISSULA</title>
+
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Plus+Jakarta+Sans:wght@400;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --neon-blue: #00f2ff;
+  --soft-yellow: #fff59d; /* Kuning Soft Utama */
+  --bg-color: #080a0f;
+  --card-bg: rgba(13, 17, 23, 0.9);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--soft-yellow); /* Tulisan default menjadi Kuning Soft */
+  overflow-x: hidden;
+}
+
+/* ===== CYBER BACKGROUND ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  background: 
+    linear-gradient(to bottom, rgba(8, 10, 15, 0.9), rgba(8, 10, 15, 0.8)),
+    url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=2070'); 
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  z-index: 2;
+}
+
+/* ===== HEADER ===== */
+.header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  color: var(--soft-yellow); /* Judul Kuning Soft */
+  filter: drop-shadow(0 0 10px rgba(255, 245, 157, 0.2));
+}
+
+.code-text {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--soft-yellow); /* Tag Atas Kuning Soft */
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  display: block;
+  letter-spacing: 3px;
+  opacity: 0.8;
+}
+
+/* ===== GRID CARDS ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 245, 157, 0.1);
+  border-radius: 20px;
+  padding: 12px;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(10px);
+}
+
+.card:hover {
+  border-color: var(--soft-yellow);
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px rgba(255, 245, 157, 0.15);
+}
+
+.img-box {
+  width: 100%;
+  height: 180px;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  background: #111;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: 0.5s;
+  filter: sepia(0.3) brightness(0.9); /* Sedikit tone hangat agar match dengan kuning */
+}
+
+.content {
+  padding: 5px 10px 15px;
+}
+
+.card h3 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: var(--soft-yellow); /* Judul Kartu Kuning Soft */
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: var(--soft-yellow); /* Deskripsi Kuning Soft */
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+/* ===== BUTTON BACK ===== */
+.footer-nav {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start; 
+  margin-top: 20px;
+}
+
+.btn-back {
+  display: inline-block;
+  color: var(--soft-yellow);
+  text-decoration: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  border: 2px solid var(--soft-yellow);
+  padding: 12px 28px;
+  border-radius: 8px;
+  transition: 0.3s;
+  background: transparent;
+  font-weight: bold;
+}
+
+.btn-back:hover {
+  background: var(--soft-yellow);
+  color: #000;
+  box-shadow: 0 0 20px #1A1A1A(255, 245, 157, 0.4);
+}
+
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="container">
+    
+    <div class="header">
+      <span class="code-text">&lt;standard_operating_procedure /&gt;</span>
+      <h1>Lab Informatika</h1>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="img-box">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=600" alt="Busana">
+        </div>
+        <div class="content">
+          <h3>[01] Prosedure Start-Up</h3>
+          <p>Periksa kabel daya, nyalakan UPS/stabilizer terlebih dahulu, baru tekan tombol power pada CPU</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="img-box">
+          <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=600" alt="Hardware">
+        </div>
+        <div class="content">
+          <h3>[02] Prosedure Login Sistem</h3>
+          <p>Gunakan akun praktikan atau NIM yang telah terdaftar untuk login ke sistem operasi. Pastikan koneksi jaringan aktif sebelum memulai sesi praktikum</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="img-box">
+          <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600" alt="Software">
+        </div>
+        <div class="content">
+          <h3>[03] Penggunaan Data</h3>
+          <p>Selalu simpan data di Drive D atau cloud (Drive).Data di Drive akan terhapus otomatis saat PC direstart</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="img-box">
+          <img src="https://polilaman.ac.id/wp-content/uploads/2022/02/labkomputer.jpg" alt="Shutdown">
+        </div>
+        <div class="content">
+          <h3>[04] Prosedure Shut-down </h3>
+          <p>Pastikan semua aplikasi tertutup, pilih menu shut-down melalui OS dan tunggu hingga lampu indikator pada CPU mati sepenuhnya sebelum  meninggalkan meja.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="img-box">
+          <img src="https://content.instructables.com/ORIG/FN4/48ZT/GKTJNUSC/FN448ZTGKTJNUSC.jpg?auto=webp&fit=bounds&frame=1&height=1024&width=1024auto=webp&frame=1&height=300" alt="Software">
+        </div>
+        <div class="content">
+          <h3>[05] Penataan kembali</h3>
+          <p>Rapatkan kembali kursi ke bawah meja, rapikan kabel mouse/keyboard dan pastikan area meja bersih</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-nav">
+      <a href="index.html" class="btn-back">Kembali ke Beranda</a>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>

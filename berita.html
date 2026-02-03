@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News | Lab Informatika UNISSULA</title>
+
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --soft-yellow: #fff59d;
+  --dark-bg: #0a0c10;
+  --card-bg: rgba(20, 22, 28, 0.6);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--dark-bg);
+  color: var(--soft-yellow);
+  line-height: 1.6;
+}
+
+.wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: block;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -2px;
+  line-height: 1;
+}
+
+/* ===== NEWS GRID ===== */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.news-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 245, 157, 0.1);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+}
+
+.news-card:hover {
+  transform: translateY(-12px);
+  border-color: var(--soft-yellow);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.img-frame {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: #1a1c23;
+}
+
+.news-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+  filter: grayscale(40%) contrast(1.1);
+}
+
+.news-card:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+.card-body {
+  padding: 25px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  margin-bottom: 15px;
+  display: block;
+  opacity: 0.7;
+}
+
+.news-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.news-card p {
+  font-size: 0.95rem;
+  opacity: 0.8;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.read-more {
+  text-decoration: none;
+  color: var(--soft-yellow);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--soft-yellow);
+  padding-bottom: 2px;
+  align-self: flex-start;
+}
+
+/* ===== FOOTER NAV ===== */
+.bottom-nav {
+  margin-top: 40px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.btn-beranda {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--soft-yellow);
+  text-decoration: none;
+  padding: 12px 30px;
+  border: 2px solid var(--soft-yellow);
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: 0.3s;
+  background: transparent;
+}
+
+.btn-beranda:hover {
+  background: var(--soft-yellow);
+  color: var(--dark-bg);
+  box-shadow: 0 0 20px rgba(255, 245, 157, 0.3);
+}
+
+@media (max-width: 600px) {
+  h1 { font-size: 2.2rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+  
+  <header>
+    <span class="label">Portal Berita Resmi</span>
+    <h1>Informatics<br>Lab News</h1>
+  </header>
+
+  <div class="news-grid">
+    
+    <article class="news-card">
+      <div class="img-frame">
+        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800" alt="Cybersecurity">
+      </div>
+      <div class="card-body">
+        <span class="meta">Feb 03, 2026 • WORKSHOP</span>
+        <h3>Workshop Pentesting: Mengamankan Infrastruktur Kampus</h3>
+        <p>Lab Jaringan mengadakan pelatihan penetration testing untuk mahasiswa guna memahami celah keamanan pada sistem informasi modern secara etis.</p>
+        <a href="#" class="read-more">Lihat Detail Acara</a>
+      </div>
+    </article>
+
+   <article class="news-card">
+  <div class="img-frame">
+    <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?q=80&w=1000&auto=format&fit=crop" alt="Server GPU">
+  </div>
+  <div class="card-body">
+    <span class="meta">Jan 30, 2026 • UPDATE</span>
+    <h3>Implementasi Server GPU Baru untuk Riset AI</h3>
+    <p>Guna mendukung riset Machine Learning dan Deep Learning, Lab Informatika kini dilengkapi dengan workstation berspesifikasi GPU tinggi.</p>
+    <a href="#" class="read-more">Cek Spesifikasi</a>
+  </div>
+</article>
+
+    <article class="news-card">
+      <div class="img-frame">
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800" alt="Coding">
+      </div>
+      <div class="card-body">
+        <span class="meta">Jan 25, 2026 • PRESTASI</span>
+        <h3>Mahasiswa Informatika UNISSULA Juara Hackathon Nasional</h3>
+        <p>Selamat kepada tim "Geni-IT" yang berhasil meraih posisi pertama dalam ajang inovasi digital tingkat nasional di Jakarta.</p>
+        <a href="#" class="read-more">Baca Ceritanya</a>
+      </div>
+    </article>
+
+    <article class="news-card">
+      <div class="img-frame">
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800" alt="Admin">
+      </div>
+      <div class="card-body">
+        <span class="meta">Jan 18, 2026 • INFO</span>
+        <h3>Pendaftaran Asisten Laboratorium Semester Genap</h3>
+        <p>Dibuka kesempatan bagi mahasiswa aktif angkatan 2023 & 2024 untuk berkontribusi sebagai asisten praktikum. Daftarkan diri segera!</p>
+        <a href="#" class="read-more">Alur Pendaftaran</a>
+      </div>
+    </article>
+
+    <article class="news-card">
+      <div class="img-frame">
+        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&q=80&w=800" alt="Software">
+      </div>
+      <div class="card-body">
+        <span class="meta">Jan 04, 2026 • RESEARCH</span>
+        <h3>Publikasi Jurnal Terindeks Scopus dari Lab Rekayasa</h3>
+        <p>Riset kolaborasi asisten lab mengenai optimalisasi algoritma blockchain baru saja diterbitkan di jurnal internasional bereputasi.</p>
+        <a href="#" class="read-more">Lihat Publikasi</a>
+      </div>
+    </article>
+
+    <article class="news-card">
+      <div class="img-frame">
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=800" alt="Tips">
+      </div>
+      <div class="card-body">
+        <span class="meta">Jan 05, 2026 • TIPS</span>
+        <h3>Tips Menjaga Perangkat Keras dari Overheating</h3>
+        <p>Simak panduan merawat PC dan laptop agar tetap dingin saat mengerjakan project coding yang berat di area laboratorium.</p>
+        <a href="#" class="read-more">Baca Tips</a>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="bottom-nav">
+    <a href="index.html" class="btn-beranda">← KEMBALI KE BERANDA</a>
+  </div>
+
+</div>
+
+</body>
+</html>

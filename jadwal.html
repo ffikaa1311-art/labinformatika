@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Lab Informatics - UNISSULA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --kuning-gold: #D4A017;
+            --kuning-gelap: #B8860B;
+            --dark: #1A1A1A;
+            --cream-bg: #FDFDF7;
+        }
+
+        body {
+            background: linear-gradient(135deg, #FDFDF7 0%, #F7F1E3 100%);
+            font-family: 'Outfit', sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 20px;
+            color: var(--dark);
+        }
+
+        /* TOMBOL KEMBALI KUNING EMAS */
+        .btn-kembali {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: var(--dark);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid var(--kuning-gold);
+        }
+
+        .btn-kembali:hover {
+            transform: translateY(-5px);
+            background: var(--kuning-gold);
+            border-color: var(--kuning-gelap);
+            box-shadow: 0 15px 25px rgba(212, 160, 23, 0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .header h1 {
+            color: var(--dark);
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+            letter-spacing: -1px;
+        }
+
+        .header h1 span {
+            color: var(--kuning-gold);
+        }
+
+        .header p {
+            font-weight: 600;
+            color: var(--kuning-gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        /* Grid Layout */
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .day-column {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            padding: 20px;
+            border: 1px solid rgba(212, 160, 23, 0.2);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.03);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .day-column:hover {
+            transform: translateY(-10px);
+            background: white;
+            border-color: var(--kuning-gold);
+            box-shadow: 0 20px 40px rgba(212, 160, 23, 0.1);
+        }
+
+        .day-name {
+            text-align: center;
+            font-weight: 800;
+            color: var(--dark);
+            padding: 10px 0;
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--kuning-gold);
+            text-transform: uppercase;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        /* Card Style */
+        .class-card {
+            background: white;
+            padding: 18px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border-left: 6px solid var(--kuning-gold);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .class-card:hover {
+            box-shadow: 0 10px 25px rgba(212, 160, 23, 0.15);
+            background: #FFFEF9;
+        }
+
+        .time {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--kuning-gold);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .subject {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--dark);
+            display: block;
+            line-height: 1.2;
+        }
+
+        .lab-room {
+            font-size: 0.65rem;
+            font-weight: 800;
+            background: #F4F4F4;
+            color: #666;
+            padding: 4px 10px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+
+        /* Animasi */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .empty-slot {
+            text-align: center;
+            color: #BBB;
+            font-size: 0.8rem;
+            padding: 30px 0;
+            font-style: italic;
+        }
+
+    </style>
+</head>
+<body>
+
+<a href="index.html" class="btn-kembali">
+    <span>←</span> KEMBALI
+</a>
+
+<div class="container">
+    <div class="header">
+        <h1>Jadwal <span>Praktikum Laboratorium</span></h1>
+        <p>Universitas Islam Sultan Agung-FTI</p>
+    </div>
+
+    <div class="schedule-grid">
+        <div class="day-column">
+            <div class="day-name">Senin</div>
+            <div class="class-card">
+                <span class="time">08:00 - 10:00</span>
+                <span class="subject">Pemrograman Web</span>
+                <span class="lab-room">Lab Utama</span>
+            </div>
+            <div class="class-card">
+                <span class="time">13:00 - 15:00</span>
+                <span class="subject">Struktur Data</span>
+                <span class="lab-room">Lab 1</span>
+            </div>
+        </div>
+
+        <div class="day-column">
+            <div class="day-name">Selasa</div>
+            <div class="class-card">
+                <span class="time">10:00 - 12:00</span>
+                <span class="subject">Basis Data</span>
+                <span class="lab-room">Lab 3</span>
+            </div>
+            <div class="empty-slot">Free Session</div>
+        </div>
+
+        <div class="day-column">
+            <div class="day-name">Rabu</div>
+            <div class="class-card">
+                <span class="time">08:00 - 10:00</span>
+                <span class="subject">AI & Robotics</span>
+                <span class="lab-room">Lab 2</span>
+            </div>
+            <div class="class-card">
+                <span class="time">13:00 - 15:00</span>
+                <span class="subject">Sistem Operasi</span>
+                <span class="lab-room">Lab 3</span>
+            </div>
+        </div>
+
+        <div class="day-column">
+            <div class="day-name">Kamis</div>
+            <div class="class-card">
+                <span class="time">10:00 - 12:00</span>
+                <span class="subject">Grafika Komputer</span>
+                <span class="lab-room">Lab 2</span>
+            </div>
+        </div>
+
+        <div class="day-column">
+            <div class="day-name">Jumat</div>
+            <div class="class-card">
+                <span class="time">08:00 - 10:00</span>
+                <span class="subject">Jaringan Komp.</span>
+                <span class="lab-room">Lab 1</span>
+            </div>
+            <div class="class-card">
+                <span class="time">13:00 - 15:00</span>
+                <span class="subject">Mobile Dev</span>
+                <span class="lab-room">Lab 2</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

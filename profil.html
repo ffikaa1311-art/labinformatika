@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informatics Lab • Unissula</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #fff;
+            margin: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+
+        /* Navigasi Melayang */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            box-sizing: border-box;
+            z-index: 100;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 10%;
+            background: #FFFBE6; /* Kuning soft estetik */
+        }
+
+        .hero-section h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 12vw, 8rem);
+            margin: 0;
+            line-height: 0.8;
+            font-style: italic;
+        }
+
+        .hero-section p {
+            max-width: 400px;
+            margin-top: 30px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Section Lab dengan Foto */
+        .lab-showcase {
+            padding: 100px 10%;
+        }
+
+        .lab-row {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 150px;
+        }
+
+        .lab-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .photo-holder {
+            flex: 1;
+            height: 400px;
+            background: #f0f0f0;
+            border-radius: 2px; /* Siku tajam biar estetik ala majalah */
+            overflow: hidden;
+        }
+
+        .photo-holder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%);
+            transition: 0.5s;
+        }
+
+        .photo-holder:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+
+        .text-holder {
+            flex: 1;
+        }
+
+        .text-holder h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .text-holder span {
+            color: #d4af37; /* Aksen emas/kuning tua */
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            font-weight: 700;
+        }
+
+        footer {
+            padding: 50px 10%;
+            border-top: 1px solid #eee;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+<header style="
+    width: 100%; 
+    padding: 20px 10%; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    background: #e7e4da; 
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+">
+    <div style="display: flex; align-items: center; gap: 15px;">
+        <img src="LogoUnissula.png" 
+             style="width: 45px; height: auto;">
+        
+        <div style="text-align: left; line-height: 1.2;">
+            <div style="font-weight: 800; font-size: 1.2rem; color: #1a1a1a; letter-spacing: 0.5px;">UNISSULA</div>
+            <div style="font-weight: 600; font-size: 0.75rem; color: #d4af37; letter-spacing: 1px; text-transform: uppercase;">Lab Informatika</div>
+        </div>
+    </div>
+
+    <div style="font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; color: #ecd596; text-transform: uppercase;">
+    </div>
+    <div style="display: flex; align-items: center; gap: 20px;">
+        <div style="text-align: right; border-right: 1px solid #eee; padding-right: 120px;">
+            <div id="jam" style="font-size: 0.9rem; font-weight: 800; color: #1a1a1a; font-family: monospace;">00:00:00</div>
+            <div style="font-size: 0.55rem; font-weight: 700; color: #bbb; text-transform: uppercase; letter-spacing: 2px;">Local Time</div>
+        </div>
+
+        <div style="text-align: right;">
+            <div style="font-size: 0.75rem; font-weight: 700; color: #1a1a1a;">SEMARANG, ID</div>
+            <div style="font-size: 0.55rem; font-weight: 700; color: #ecd506; text-transform: uppercase;">Informatics Lab</div>
+        </div>
+    </div>
+
+    <script>
+        function updateJam() {
+            const sekarang = new Date();
+            const h = String(sekarang.getHours()).padStart(2, '0');
+            const m = String(sekarang.getMinutes()).padStart(2, '0');
+            const s = String(sekarang.getSeconds()).padStart(2, '0');
+            document.getElementById('jam').innerHTML = h + ":" + m + ":" + s;
+        }
+        setInterval(updateJam, 1000);
+        updateJam(); // Jalankan langsung
+    </script>
+</header>
+
+    <div class="hero-section">
+        <h1>The<br>Lab.</h1>
+        <p>Eksplorasi teknologi dan inovasi digital dalam lingkungan akademik yang inspiratif di Teknik Informatika.</p>
+    </div>
+
+    <div class="lab-showcase">
+        <div class="lab-row">
+            <div class="photo-holder">
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1000" alt="Lab RPL">
+            </div>
+            <div class="text-holder">
+                <span>Core Research</span>
+                <h2>Software Engineering</h2>
+                <p>Tempat di mana baris kode berubah menjadi solusi. Fokus pada pengembangan web, mobile, dan sistem cerdas.</p>
+            </div>
+        </div>
+
+        <div class="lab-row">
+            <div class="photo-holder">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000" alt="Cyber Security">
+            </div>
+            <div class="text-holder">
+                <span>Security</span>
+                <h2>Networking & Cyber</h2>
+                <p>Mendalami arsitektur jaringan dan pertahanan data digital untuk dunia yang lebih aman.</p>
+            </div>
+        </div>
+    </div>
+<div style="padding: 100px 10%; background: #fafafa;">
+    <h2 style="font-family: 'Playfair Display'; font-style: italic; font-size: 3rem; text-align: center;">Moments.</h2>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 50px;">
+        <div style="height: 300px; background: #eee;"><img src="FOTO_KEGIATAN1.jpg" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div style="height: 300px; background: #eee;"><img src="FOTO_KEGIATAN2.jpg" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div style="height: 300px; background: #eee;"><img src="FOTO_KEGIATAN3.jpg" style="width:100%; height:100%; object-fit:cover;"></div>
+    </div>
+</div>
+  <div style="width: 100%; padding: 120px 0 80px 0; text-align: center; background: #fff; display: flex; flex-direction: column; align-items: center;">
+    
+    <h3 style="font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(2rem, 8vw, 3.5rem); margin: 0 0 20px 0; color: #1a1a1a;">
+        Terima kasih.
+    </h3>
+    
+    <p style="font-size: 1rem; color: #888; max-width: 500px; line-height: 1.8; margin: 0 0 60px 0; padding: 0 30px; font-weight: 300;">
+        Senang bisa berbagi cerita tentang Lab Informatika UNISSULA. <br>Sampai jumpa di eksplorasi berikutnya.
+    </p>
+
+    <a href="index.html" style="
+        text-decoration: none; 
+        color: #1a1a1a; 
+        font-weight: 700; 
+        font-size: 0.8rem; 
+        letter-spacing: 4px; 
+        border-bottom: 2px solid #1a1a1a; /* Gaya underline bold biar estetik */
+        padding-bottom: 5px;
+        transition: 0.4s;
+        text-transform: uppercase;
+    ">Kembali ke Beranda</a>
+
+    <div style="margin-top: 150px;">
+        <p style="font-size: 0.7rem; color: #ccc; letter-spacing: 2px; text-transform: uppercase;">
+            Universitas Islam Sultan Agung-FTI
+        </p>
+    </div>
+</div>
+</body>
+</html>
