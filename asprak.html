@@ -155,40 +155,35 @@
         <h2>JOIN THE <span>CREW</span></h2>
         <p>Pendaftaran Asisten Praktikum Lab Informatika</p>
 
-        <form action="https://formspree.io/f/xkovpaka" method="SUBMIT FORM">
-            <div class="form-group">
-                <label>NAMA LENGKAP</label>
-                <input type="text" placeholder="Masukkan nama sesuai KTM" required>
-            </div>
+       <form action="https://formspree.io/f/xkovpaka" method="POST">
+    <div class="form-group">
+        <label>NAMA LENGKAP</label>
+        <input type="text" name="nama" placeholder="Masukkan nama sesuai KTM" required>
+    </div>
 
-            <div class="form-group">
-                <label>NIM</label>
-                <input type="text" placeholder="3060xxxxxx" required>
-            </div>
+    <div class="form-group">
+        <label>NIM</label>
+        <input type="text" name="nim" placeholder="3060xxxxxx" required>
+    </div>
 
-            <div class="form-group">
-                <label>PILIHAN UNIT LAB</label>
-                <select required>
-                    <option value="" disabled selected>Pilih Unit...</option>
-                    <option value="software">Software Engineering</option>
-                    <option value="database">Database & Big Data</option>
-                    <option value="network">Network & Security</option>
-                    <option value="ai">Artificial Intelligence</option>
-                </select>
-            </div>
+    <div class="form-group">
+        <label>PILIHAN UNIT LAB</label>
+        <select name="unit_lab" required>
+            <option value="" disabled selected>Pilih Unit...</option>
+            <option value="software">Software Engineering</option>
+            <option value="database">Database & Big Data</option>
+            <option value="network">Network & Security</option>
+            <option value="ai">Artificial Intelligence</option>
+        </select>
+    </div>
 
-            <div class="form-group">
-                <label>ALASAN MENDAFTAR</label>
-                <textarea rows="3" placeholder="Apa motivasimu bergabung?"></textarea>
-            </div>
+    <div class="form-group">
+        <label>ALASAN MENDAFTAR</label>
+        <textarea name="alasan" rows="3" placeholder="Apa motivasimu bergabung?"></textarea>
+    </div>
 
-            <div class="form-group">
-                <label>LINK PORTOFOLIO / CV</label>
-                <input type="url" placeholder="http://github.com/kamu">
-            </div>
-
-            <button type="submit" class="btn-submit">SUBMIT FORM</button>
-        </form>
+    <button type="submit" class="btn-submit">SUBMIT FORM</button>
+</form>
 
         <div class="footer-note">
             Lab Informatika UNISSULA • 2026
