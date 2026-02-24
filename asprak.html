@@ -27,28 +27,6 @@
             padding: 40px 20px;
         }
 
-        /* Tombol Kembali */
-        .back-nav {
-            position: absolute;
-            top: 30px;
-            left: 30px;
-        }
-
-        .btn-back {
-            text-decoration: none;
-            color: var(--hitam);
-            background: var(--putih-murni);
-            padding: 10px 18px;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            border: 1px solid #EEE;
-        }
-
         /* Container Form */
         .register-card {
             background: var(--putih-murni);
@@ -69,126 +47,86 @@
             margin-bottom: 5px;
         }
 
-        .register-card h2 span {
-            color: var(--kuning);
-        }
+        .register-card h2 span { color: var(--kuning); }
+        .register-card p { color: #777; font-size: 0.9rem; margin-bottom: 30px; }
 
-        .register-card p {
-            color: #777;
-            font-size: 0.9rem;
-            margin-bottom: 30px;
-        }
-
-        /* Form Styling */
-        .form-group {
-            text-align: left;
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 700;
-            font-size: 0.85rem;
-            margin-bottom: 8px;
-            margin-left: 5px;
-        }
+        .form-group { text-align: left; margin-bottom: 20px; }
+        .form-group label { display: block; font-weight: 700; font-size: 0.85rem; margin-bottom: 8px; margin-left: 5px; }
 
         .form-group input, .form-group select, .form-group textarea {
-            width: 100%;
-            padding: 15px 20px;
-            border-radius: 15px;
-            border: 1.5px solid var(--abu-input);
-            background: var(--abu-input);
-            font-family: inherit;
-            font-size: 0.9rem;
-            box-sizing: border-box;
-            transition: 0.3s;
+            width: 100%; padding: 15px 20px; border-radius: 15px; border: 1.5px solid var(--abu-input);
+            background: var(--abu-input); font-family: inherit; font-size: 0.9rem; box-sizing: border-box; transition: 0.3s;
         }
 
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: var(--kuning);
-            background: #FFF;
-            box-shadow: 0 0 0 4px rgba(255, 184, 0, 0.1);
+            outline: none; border-color: var(--kuning); background: #FFF; box-shadow: 0 0 0 4px rgba(255, 184, 0, 0.1);
         }
 
         .btn-submit {
-            width: 100%;
-            padding: 18px;
-            border-radius: 15px;
-            border: none;
-            background: var(--hitam);
-            color: var(--kuning);
-            font-weight: 800;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.3s;
-            margin-top: 10px;
-            letter-spacing: 1px;
+            width: 100%; padding: 18px; border-radius: 15px; border: none; background: var(--hitam);
+            color: var(--kuning); font-weight: 800; font-size: 1rem; cursor: pointer; transition: 0.3s; margin-top: 10px; letter-spacing: 1px;
         }
 
-        .btn-submit:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+
+        /* Tombol Beranda di Bawah */
+        .btn-back-bottom {
+            display: inline-flex; align-items: center; gap: 8px; margin-top: 25px; text-decoration: none;
+            color: #888; font-weight: 700; font-size: 0.85rem; transition: 0.3s;
         }
 
-        /* Footer Simple */
-        .footer-note {
-            margin-top: 20px;
-            font-size: 0.75rem;
-            color: #AAA;
-        }
+        .btn-back-bottom:hover { color: var(--hitam); }
 
-        @media (max-width: 500px) {
-            .register-card { padding: 30px 20px; }
-            .back-nav { top: 15px; left: 15px; }
-        }
+        .footer-note { margin-top: 15px; font-size: 0.75rem; color: #AAA; }
+
+        @media (max-width: 500px) { .register-card { padding: 30px 20px; } }
     </style>
 </head>
 <body>
-
-    <div class="back-nav">
-        <a href="index.html" class="btn-back"><i class="fas fa-arrow-left"></i> BERANDA</a>
-    </div>
 
     <div class="register-card">
         <h2>JOIN THE <span>CREW</span></h2>
         <p>Pendaftaran Asisten Praktikum Lab Informatika</p>
 
-     <form action="https://formspree.io/f/xkovpaka" method="POST">
-    <div class="form-group">
-        <label>NAMA LENGKAP</label>
-        <input type="text" name="nama_lengkap" placeholder="Masukkan nama sesuai KTM" required>
-    </div>
+        <form action="https://formspree.io/f/xkovpaka" method="POST">
+            <div class="form-group">
+                <label>NAMA LENGKAP</label>
+                <input type="text" name="nama_lengkap" placeholder="Masukkan nama sesuai KTM" required>
+            </div>
 
-    <div class="form-group">
-        <label>NIM</label>
-        <input type="text" name="nim" placeholder="3060xxxxxx" required>
-    </div>
+            <div class="form-group">
+                <label>NIM</label>
+                <input type="text" name="nim" placeholder="3060xxxxxx" required>
+            </div>
 
-    <div class="form-group">
-        <label>PILIHAN UNIT LAB</label>
-        <select name="unit_lab" required>
-            <option value="" disabled selected>Pilih Unit...</option>
-            <option value="software">Software Engineering</option>
-            <option value="database">Database & Big Data</option>
-            <option value="network">Network & Security</option>
-            <option value="ai">Artificial Intelligence</option>
-        </select>
-    </div>
+            <div class="form-group">
+                <label>PILIHAN UNIT LAB</label>
+                <select name="unit_lab" required>
+                    <option value="" disabled selected>Pilih Unit...</option>
+                    <option value="software">Software Engineering</option>
+                    <option value="database">Database & Big Data</option>
+                    <option value="network">Network & Security</option>
+                    <option value="ai">Artificial Intelligence</option>
+                </select>
+            </div>
 
-    <div class="form-group">
-        <label>ALASAN MENDAFTAR</label>
-        <textarea name="alasan" rows="3" placeholder="Apa motivasimu bergabung?"></textarea>
-    </div>
+            <div class="form-group">
+                <label>ALASAN MENDAFTAR</label>
+                <textarea name="alasan" rows="3" placeholder="Apa motivasimu bergabung?"></textarea>
+            </div>
 
-    <div class="form-group">
-        <label>LINK PORTOFOLIO / CV</label>
-        <input type="url" name="link_cv" placeholder="http://github.com/kamu atau link GDrive">
-    </div>
+            <div class="form-group">
+                <label>LINK PORTOFOLIO / CV</label>
+                <input type="url" name="link_cv" placeholder="http://github.com/kamu atau link GDrive">
+            </div>
 
-    <button type="submit" class="btn-submit">SUBMIT FORM</button>
-</form>
+            <button type="submit" class="btn-submit">SUBMIT FORM</button>
+        </form>
+
+        <a href="index.html" class="btn-back-bottom">
+            <i class="fas fa-arrow-left"></i> KEMBALI KE BERANDA
+        </a>
+
         <div class="footer-note">
             Lab Informatika UNISSULA • 2026
         </div>
